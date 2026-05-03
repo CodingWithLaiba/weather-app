@@ -1,20 +1,23 @@
 import React from "react";
+import { useState } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 
 import logo from "../assets/images/logo.svg";
 import settingIcon from "../assets/images/icon-units.svg";
 import dropdownIcon from "../assets/images/icon-dropdown.svg";
+import tickIcon from "../assets/images/icon-checkmark.svg";
+const { temperatureUnit, setTemperatureUnit } = useState("c");
+const { windUnit, setWindUnit } = useState("km/h");
+const { precipitationUnit, setPrecipitationUnit } = useState("mm");
 
 function Navbar() {
   return (
     <nav className="flex items-center justify-between py-4">
-      
       {/* Logo */}
       <img src={logo} alt="Weather App" />
 
       {/* Units Dropdown */}
       <Menu as="div" className="relative inline-block">
-        
         {/* Button */}
         <MenuButton className="inline-flex items-center gap-2 rounded-lg bg-[hsl(243,23%,30%)] px-4 py-2 text-sm text-white hover:bg-[hsl(243,23%,35%)]">
           <img src={settingIcon} alt="Settings" />
@@ -24,7 +27,6 @@ function Navbar() {
 
         {/* Dropdown */}
         <MenuItems className="absolute right-0 mt-2 w-56 rounded-xl bg-[hsl(243,23%,30%)] text-white shadow-lg p-2">
-
           {/* Switch */}
           <MenuItem>
             {({ active }) => (
@@ -47,11 +49,15 @@ function Navbar() {
             <MenuItem>
               {({ active }) => (
                 <button
+                  onClick={() => setTemperatureUnit("c")}
                   className={`w-full text-left px-4 py-2 text-sm ${
                     active ? "bg-[hsl(243,23%,35%)]" : ""
                   }`}
                 >
                   Celsius (°C)
+                  {temperatureUnit === "c" && (
+                    <img src={tickIcon} alt="selected" className="w-3 h-3" />
+                  )}
                 </button>
               )}
             </MenuItem>
@@ -59,11 +65,15 @@ function Navbar() {
             <MenuItem>
               {({ active }) => (
                 <button
+                  onClick={() => setTemperatureUnit("f")}
                   className={`w-full text-left px-4 py-2 text-sm ${
                     active ? "bg-[hsl(243,23%,35%)]" : ""
                   }`}
                 >
                   Fahrenheit (°F)
+                  {temperatureUnit === "f" && (
+                    <img src={tickIcon} alt="selected" className="w-3 h-3" />
+                  )}
                 </button>
               )}
             </MenuItem>
@@ -78,11 +88,15 @@ function Navbar() {
             <MenuItem>
               {({ active }) => (
                 <button
+                  onClick={() => setWindUnit("km/h")}
                   className={`w-full text-left px-4 py-2 text-sm ${
                     active ? "bg-[hsl(243,23%,35%)]" : ""
                   }`}
                 >
                   km/h
+                  {windUnit === "km/h" && (
+                    <img src={tickIcon} alt="selected" className="w-3 h-3" />
+                  )}
                 </button>
               )}
             </MenuItem>
@@ -90,11 +104,15 @@ function Navbar() {
             <MenuItem>
               {({ active }) => (
                 <button
+                  onClick={() => setWindUnit("mph")}
                   className={`w-full text-left px-4 py-2 text-sm ${
                     active ? "bg-[hsl(243,23%,35%)]" : ""
                   }`}
                 >
                   mph
+                  {windUnit === "mph" && (
+                    <img src={tickIcon} alt="selected" className="w-3 h-3" />
+                  )}
                 </button>
               )}
             </MenuItem>
@@ -109,11 +127,15 @@ function Navbar() {
             <MenuItem>
               {({ active }) => (
                 <button
+                  onClick={() => setPrecipitationUnit("mm")}
                   className={`w-full text-left px-4 py-2 text-sm ${
                     active ? "bg-[hsl(243,23%,35%)]" : ""
                   }`}
                 >
                   Millimeters (mm)
+                  {precipitationUnit === "mm" && (
+                    <img src={tickIcon} alt="selected" className="w-3 h-3" />
+                  )}
                 </button>
               )}
             </MenuItem>
@@ -121,11 +143,15 @@ function Navbar() {
             <MenuItem>
               {({ active }) => (
                 <button
+                  onClick={() => setPrecipitationUnit("in")}
                   className={`w-full text-left px-4 py-2 text-sm ${
                     active ? "bg-[hsl(243,23%,35%)]" : ""
                   }`}
                 >
                   Inches (in)
+                  {precipitationUnit === "in" && (
+                    <img src={tickIcon} alt="selected" className="w-3 h-3" />
+                  )}
                 </button>
               )}
             </MenuItem>
