@@ -24,20 +24,19 @@ function Navbar() {
 
       {/* Dropdown */}
       <Menu as="div" className="relative">
-        <MenuButton className="inline-flex items-center gap-2 rounded-lg bg-[hsl(243,23%,30%)] px-4 py-2 text-sm text-white hover:bg-[hsl(243,23%,35%)]">
-          <img src={settingIcon} alt="Settings" />
+        <MenuButton className="inline-flex justify-between items-center cursor-pointer gap-2 rounded-lg bg-[hsl(243,23%,30%)] px-2 py-2 text-xs text-white hover:bg-[hsl(243,23%,35%)]">
+          <img src={settingIcon} alt="Settings" className="w-3 h-3" />
           Units
-          <img src={dropdownIcon} alt="Dropdown" className="w-4 h-4" />
+          <img src={dropdownIcon} alt="Dropdown" className="w-3 h-3" />
         </MenuButton>
 
-        <MenuItems className="absolute right-0 mt-2 w-56 rounded-xl bg-[hsl(243,23%,30%)] text-white shadow-lg p-2">
-          
+        <MenuItems className="absolute right-0 mt-2 w-45 rounded-xl bg-[hsl(243,23%,30%)] text-white shadow-lg cursor-pointer divide-y divide-gray-600 px-1">
           {/* Switch */}
           <MenuItem>
             {({ active }) => (
               <button
                 onClick={handleSwitch}
-                className={`w-full text-left px-4 py-2 text-sm ${
+                className={`w-full text-left px-2 py-2 text-sm ${
                   active ? "bg-[hsl(243,23%,35%)]" : ""
                 }`}
               >
@@ -48,7 +47,7 @@ function Navbar() {
 
           {/* Temperature */}
           <div className="mt-2">
-            <p className="px-4 py-1 text-xs text-gray-400 uppercase">
+            <p className="px-2 py-1 text-xs text-gray-500 ">
               Temperature
             </p>
 
@@ -56,7 +55,7 @@ function Navbar() {
               {({ active }) => (
                 <button
                   onClick={() => setTemperatureUnit("c")}
-                  className={`flex justify-between items-center w-full px-4 py-2 text-sm ${
+                  className={`flex justify-between items-center w-full px-2 py-2 text-sm ${
                     active ? "bg-[hsl(243,23%,35%)]" : ""
                   }`}
                 >
@@ -72,7 +71,7 @@ function Navbar() {
               {({ active }) => (
                 <button
                   onClick={() => setTemperatureUnit("f")}
-                  className={`flex justify-between items-center w-full px-4 py-2 text-sm ${
+                  className={`flex justify-between items-center w-full px-2 py-2 text-sm ${
                     active ? "bg-[hsl(243,23%,35%)]" : ""
                   }`}
                 >
@@ -87,7 +86,7 @@ function Navbar() {
 
           {/* Wind */}
           <div className="mt-2">
-            <p className="px-4 py-1 text-xs text-gray-400 uppercase">
+            <p className="px-2 py-1 text-xs text-gray-400 ">
               Wind Speed
             </p>
 
@@ -95,7 +94,7 @@ function Navbar() {
               {({ active }) => (
                 <button
                   onClick={() => setWindUnit("km/h")}
-                  className={`flex justify-between items-center w-full px-4 py-2 text-sm ${
+                  className={`flex justify-between items-center w-full px-2 py-2 text-sm ${
                     active ? "bg-[hsl(243,23%,35%)]" : ""
                   }`}
                 >
@@ -111,7 +110,7 @@ function Navbar() {
               {({ active }) => (
                 <button
                   onClick={() => setWindUnit("mph")}
-                  className={`flex justify-between items-center w-full px-4 py-2 text-sm ${
+                  className={`flex justify-between items-center w-full px-2 py-2 text-sm ${
                     active ? "bg-[hsl(243,23%,35%)]" : ""
                   }`}
                 >
@@ -126,7 +125,7 @@ function Navbar() {
 
           {/* Precipitation */}
           <div className="mt-2">
-            <p className="px-4 py-1 text-xs text-gray-400 uppercase">
+            <p className="px-2 py-1 text-xs text-gray-400 ">
               Precipitation
             </p>
 
@@ -134,7 +133,7 @@ function Navbar() {
               {({ active }) => (
                 <button
                   onClick={() => setPrecipitationUnit("mm")}
-                  className={`flex justify-between items-center w-full px-4 py-2 text-sm ${
+                  className={`flex justify-between items-center w-full px-2 py-2 text-sm ${
                     active ? "bg-[hsl(243,23%,35%)]" : ""
                   }`}
                 >
@@ -150,7 +149,7 @@ function Navbar() {
               {({ active }) => (
                 <button
                   onClick={() => setPrecipitationUnit("in")}
-                  className={`flex justify-between items-center w-full px-4 py-2 text-sm ${
+                  className={`flex justify-between items-center w-full px-2 py-2 text-sm ${
                     active ? "bg-[hsl(243,23%,35%)]" : ""
                   }`}
                 >
