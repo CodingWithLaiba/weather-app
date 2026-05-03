@@ -1,118 +1,138 @@
 import React from "react";
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 
 import logo from "../assets/images/logo.svg";
-import settingIcon from "../assets/images/icon-units.svg;"
+import settingIcon from "../assets/images/icon-units.svg";
 import dropdownIcon from "../assets/images/icon-dropdown.svg";
+
 function Navbar() {
   return (
-    <div>
-      <nav className="flex items-center justify-between p-4">
-        <img src={logo} alt="Weather App" />
+    <nav className="flex items-center justify-between py-4">
+      
+      {/* Logo */}
+      <img src={logo} alt="Weather App" />
 
-          <Menu as="div" className="relative inline-block">
-      <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs inset-ring-1 inset-ring-gray-300 hover:bg-gray-50 dark:bg-white/10 dark:text-white dark:shadow-none dark:inset-ring-white/5 dark:hover:bg-white/20">
-        <img src={settingIcon} alt="Setting-Icon" />
-        Units
-        <img src={dropdownIcon} alt="Dropdown" className="-mr-1 size-5 text-gray-400" aria-hidden="true"/>
-      </MenuButton>
+      {/* Units Dropdown */}
+      <Menu as="div" className="relative inline-block">
+        
+        {/* Button */}
+        <MenuButton className="inline-flex items-center gap-2 rounded-lg bg-[hsl(243,23%,30%)] px-4 py-2 text-sm text-white hover:bg-[hsl(243,23%,35%)]">
+          <img src={settingIcon} alt="Settings" />
+          Units
+          <img src={dropdownIcon} alt="Dropdown" className="w-4 h-4" />
+        </MenuButton>
 
-      <MenuItems
-        transition
-        className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg outline-1 outline-black/5 transition data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in dark:divide-white/10 dark:bg-gray-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10"
-      >
-<MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden dark:text-gray-300 dark:data-focus:bg-white/5 dark:data-focus:text-white"
-            >
-              Switch to Imperial
-            </a>
-          </MenuItem>
-        <div className="py-1">
+        {/* Dropdown */}
+        <MenuItems className="absolute right-0 mt-2 w-56 rounded-xl bg-[hsl(243,23%,30%)] text-white shadow-lg p-2">
+
+          {/* Switch */}
           <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden dark:text-gray-300 dark:data-focus:bg-white/5 dark:data-focus:text-white"
-            >
+            {({ active }) => (
+              <button
+                className={`w-full text-left px-4 py-2 text-sm ${
+                  active ? "bg-[hsl(243,23%,35%)]" : ""
+                }`}
+              >
+                Switch to Imperial
+              </button>
+            )}
+          </MenuItem>
+
+          {/* Temperature */}
+          <div className="mt-2">
+            <p className="px-4 py-1 text-xs text-gray-400 uppercase">
               Temperature
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden dark:text-gray-300 dark:data-focus:bg-white/5 dark:data-focus:text-white"
-            >
-              Celsius (°C)
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden dark:text-gray-300 dark:data-focus:bg-white/5 dark:data-focus:text-white"
-            >
-              Fahrenheit(°F)
-            </a>
-          </MenuItem>
-        </div>
-        <div className="py-1">
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden dark:text-gray-300 dark:data-focus:bg-white/5 dark:data-focus:text-white"
-            >
+            </p>
+
+            <MenuItem>
+              {({ active }) => (
+                <button
+                  className={`w-full text-left px-4 py-2 text-sm ${
+                    active ? "bg-[hsl(243,23%,35%)]" : ""
+                  }`}
+                >
+                  Celsius (°C)
+                </button>
+              )}
+            </MenuItem>
+
+            <MenuItem>
+              {({ active }) => (
+                <button
+                  className={`w-full text-left px-4 py-2 text-sm ${
+                    active ? "bg-[hsl(243,23%,35%)]" : ""
+                  }`}
+                >
+                  Fahrenheit (°F)
+                </button>
+              )}
+            </MenuItem>
+          </div>
+
+          {/* Wind */}
+          <div className="mt-2">
+            <p className="px-4 py-1 text-xs text-gray-400 uppercase">
               Wind Speed
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden dark:text-gray-300 dark:data-focus:bg-white/5 dark:data-focus:text-white"
-            >
-              km/h
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden dark:text-gray-300 dark:data-focus:bg-white/5 dark:data-focus:text-white"
-            >
-           mph
-            </a>
-          </MenuItem>
-        </div>
-        <div className="py-1">
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden dark:text-gray-300 dark:data-focus:bg-white/5 dark:data-focus:text-white"
-            >
+            </p>
+
+            <MenuItem>
+              {({ active }) => (
+                <button
+                  className={`w-full text-left px-4 py-2 text-sm ${
+                    active ? "bg-[hsl(243,23%,35%)]" : ""
+                  }`}
+                >
+                  km/h
+                </button>
+              )}
+            </MenuItem>
+
+            <MenuItem>
+              {({ active }) => (
+                <button
+                  className={`w-full text-left px-4 py-2 text-sm ${
+                    active ? "bg-[hsl(243,23%,35%)]" : ""
+                  }`}
+                >
+                  mph
+                </button>
+              )}
+            </MenuItem>
+          </div>
+
+          {/* Precipitation */}
+          <div className="mt-2">
+            <p className="px-4 py-1 text-xs text-gray-400 uppercase">
               Precipitation
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden dark:text-gray-300 dark:data-focus:bg-white/5 dark:data-focus:text-white"
-            >
-              Millimeters(mm)
-            </a>
-          </MenuItem>
-        </div>
-        <div className="py-1">
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:text-gray-900 data-focus:outline-hidden dark:text-gray-300 dark:data-focus:bg-white/5 dark:data-focus:text-white"
-            >
-              Inches(in)
-            </a>
-          </MenuItem>
-        </div>
-      </MenuItems>
-    </Menu>
-      </nav>
-    </div>
+            </p>
+
+            <MenuItem>
+              {({ active }) => (
+                <button
+                  className={`w-full text-left px-4 py-2 text-sm ${
+                    active ? "bg-[hsl(243,23%,35%)]" : ""
+                  }`}
+                >
+                  Millimeters (mm)
+                </button>
+              )}
+            </MenuItem>
+
+            <MenuItem>
+              {({ active }) => (
+                <button
+                  className={`w-full text-left px-4 py-2 text-sm ${
+                    active ? "bg-[hsl(243,23%,35%)]" : ""
+                  }`}
+                >
+                  Inches (in)
+                </button>
+              )}
+            </MenuItem>
+          </div>
+        </MenuItems>
+      </Menu>
+    </nav>
   );
 }
 
