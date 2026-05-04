@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import "./App.css";
 import Navbar from "../src/components/Navbar";
 import Searchbar from "../src/components/Searchbar";
@@ -7,6 +7,13 @@ import WeatherCard from "../src/components/WeatherCard";
 import Dailyforcast from "../src/components/Dailyforcast";
 import Hourlyforcast from "../src/components/Hourlyforcast";
 function App() {
+  const [temperatureUnit, setTemperatureUnit] = useState("c");
+  const [windUnit, setWindUnit] = useState("km/h");
+  const [precipitationUnit, setPrecipitationUnit] = useState("mm");
+  const [city, setCity]= useState("Lahore");
+  const [weatherDate, setWeatherDate] = useState(null);
+
+  
   return (
     <>
       <div className="min-h-screen px-4 py-6">
