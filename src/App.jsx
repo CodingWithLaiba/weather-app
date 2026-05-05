@@ -15,21 +15,34 @@ function App() {
   const [city, setCity] = useState("Lahore");
   const [weatherData, setWeatherData] = useState(null);
 
-  useEffect(() => {
-    const fetchWeather = async () => {
-      try {
-        const res = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=31.52&longitude=74.35&current_weather=true`
-        );
-        const data = await res.json();
-        setWeatherData(data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
+ useEffect(() => {
+  const fetchWeather = async () => {
+    try {
+      // 1️⃣ Get coordinates from city
+      const geoRes = await fetch(
+        `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
+      );
+      const geoData = await geoRes.json();
 
-    fetchWeather();
-  }, [city]);
+      if (!geoData.results) return;
+
+      const { latitude, longitude } = geoData.results[0];
+
+      // 2️⃣ Fetch weather using coordinates
+      const weatherRes = await fetch(
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min`
+      );
+
+      const weatherData = await weatherRes.json();
+
+      setWeatherData(weatherData);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  fetchWeather();
+}, [city]);
 
   const convertTemperature = (temp) =>
     temperatureUnit === "c" ? temp : (temp * 9) / 5 + 32;
