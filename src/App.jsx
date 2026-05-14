@@ -4,8 +4,8 @@ import Navbar from "./components/Navbar";
 import Searchbar from "./components/Searchbar";
 import WeatherStates from "./components/WeatherStates";
 import WeatherCard from "./components/WeatherCard";
-import Dailyforcast from "./components/Dailyforcast";
 import Hourlyforcast from "./components/Hourlyforcast";
+import DailyForecast from "./components/Dailyforcast";
 
 function App() {
   const [temperatureUnit, setTemperatureUnit] = useState("c");
@@ -67,7 +67,6 @@ function App() {
         />
 
         <Searchbar setCity={setCity} />
-
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="flex flex-col gap-6 col-span-2">
             
@@ -85,7 +84,7 @@ function App() {
               precipitationUnit={precipitationUnit}
             />
 
-            <Dailyforcast data={weatherData} />
+            <DailyForecast data={weatherData} />
           </div>
 
           <Hourlyforcast data={weatherData} />
