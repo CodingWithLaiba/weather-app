@@ -1,6 +1,6 @@
 function Hourlyforcast({ data }) {
   if (!data?.hourly) return null;
-
+if (!data || !data.current_weather)
   return (
     <div>
       {data.hourly.time.slice(0, 6).map((time, i) => (
