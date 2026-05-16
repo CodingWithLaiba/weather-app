@@ -1,6 +1,6 @@
 function DailyForecast({ data }) {
   if (!data?.daily) return null;
-
+if (!data || !data.current_weather)
   return (
     <div>
       {data.daily.time.map((day, i) => (
