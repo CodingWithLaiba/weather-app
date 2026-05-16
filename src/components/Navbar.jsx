@@ -14,13 +14,13 @@ function Navbar({temperatureUnit,setTemperatureUnit, windUnit, setWindUnit, prec
   };
   return (
     <nav className="flex items-center justify-between py-4">
-      <img src={logo} alt="Weather App" />
+      <img src={logo} alt="Weather Now" className="h-8" />
 
       <Menu as="div" className="relative">
-        <MenuButton className="inline-flex items-center gap-2 rounded-lg bg-[hsl(243,23%,30%)] px-2 py-2 text-xs text-white hover:bg-[hsl(243,23%,35%)]">
-          <img src={settingIcon} alt="Settings" className="w-3 h-3" />
+        <MenuButton className="inline-flex items-center gap-2 rounded-lg bg-[hsl(243,23%,30%)] px-3 py-2 text-sm text-white hover:bg-[hsl(243,23%,35%)] transition-colors">
+          <img src={settingIcon} alt="Settings" className="w-4 h-4" />
           Units
-          <img src={dropdownIcon} alt="Dropdown" className="w-3 h-3" />
+          <img src={dropdownIcon} alt="Dropdown" className="w-4 h-4" />
         </MenuButton>
 
         <MenuItems className="absolute right-0 mt-2 w-48 rounded-xl bg-[hsl(243,23%,30%)] text-white shadow-lg divide-y divide-gray-600 p-1">
