@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import SearchIcon from "../assets/images/icon-search.svg";
 function Searchbar({ setCity }) {
   const [input, setInput] = useState("");
 
@@ -21,13 +21,21 @@ function Searchbar({ setCity }) {
         onSubmit={handleSubmit}
         className="flex items-center gap-3 w-135"
       >
-        <input
-          type="text"
-          placeholder="Search for a place..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="w-full h-11 rounded-xl bg-[hsl(243,23%,30%)] px-4 py-3 text-white outline-none placeholder:text-gray-400"
-        />
+        <div className="relative w-full">
+  <img
+    src={SearchIcon}
+    alt="Search Icon"
+    className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none"
+  />
+
+  <input
+    type="text"
+    placeholder="Search for a place..."
+    value={input}
+    onChange={(e) => setInput(e.target.value)}
+    className="w-full h-11 rounded-xl bg-[hsl(243,23%,30%)] pl-12 pr-4 py-3 text-white outline-none placeholder:text-gray-400"
+  />
+</div>
 
         <button
           type="submit"
