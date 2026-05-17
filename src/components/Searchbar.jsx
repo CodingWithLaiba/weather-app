@@ -13,7 +13,7 @@ function Searchbar({ setCity }) {
   };
 
   return (
-    <div className="space-y-4 flex">
+    <div className="space-y-4 flex flex-col items-center justify-center gap-4">
       <h1 className="text-3xl md:text-5xl font-bold text-white text-center">
         How's the sky looking today?
       </h1>
