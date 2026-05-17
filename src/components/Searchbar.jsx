@@ -19,7 +19,7 @@ function Searchbar({ setCity }) {
       </h1>
       <form 
         onSubmit={handleSubmit}
-        className="flex items-center gap-3 w-135"
+        className="flex items-center gap-3 w-135 cursor-pointer"
       >
         <div className="relative w-full">
   <img
@@ -39,7 +39,7 @@ function Searchbar({ setCity }) {
 
         <button
           type="submit"
-          className="rounded-xl h-11 bg-[hsl(233,67%,56%)] px-6 py-3 text-white font-medium hover:bg-[hsl(233,67%,46%)] transition-colors"
+          className="cursor-pointer rounded-xl h-11 bg-[hsl(233,67%,56%)] px-6 py-3 text-white font-medium hover:bg-[hsl(233,67%,46%)] transition-colors"
         >
           Search
         </button>
