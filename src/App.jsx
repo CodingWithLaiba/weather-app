@@ -93,7 +93,7 @@ function App() {
 
   return (
     <div className="min-h-screen px-4 py-6 md:px-8 md:py-10">
-      <div className="max-w-[1440px] mx-auto space-y-8">
+      <div className="max-w-360 mx-auto space-y-8">
 
         {/* Navbar */}
         <Navbar
