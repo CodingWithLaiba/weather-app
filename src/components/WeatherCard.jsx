@@ -1,45 +1,58 @@
-import sunnyIcon from "../assets/images/icon-sunny.webp";
-
-function WeatherCard({ data, convertTemperature, temperatureUnit, loading }) {
-  // Loading state
+function WeatherCard({
+  data,
+  location,
+  loading,
+  convertTemperature,
+  temperatureUnit,
+}) {
   if (loading) {
     return (
-      <div className="rounded-2xl bg-[hsl(243,23%,30%)] p-6 text-white">
-        Loading weather...
+      <div className="bg-[#1E213A] rounded-2xl p-6">
+        Loading...
       </div>
     );
   }
 
-  // No data state
-  if (!data || !data.current_weather) {
-    return (
-      <div className="rounded-2xl bg-[hsl(243,23%,30%)] p-6 text-white">
-        No weather data found
-      </div>
-    );
-  }
+  if (!data) return null;
 
-  // Current temperature
-  const temp = data.current_weather.temperature;
-  
-  // Format date
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const options = { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' };
-    return date.toLocaleDateString('en-US', options);
-  };
+  const temp = data.current.temperature_2m;
 
   return (
-    <div className="rounded-2xl bg-gradient-to-br from-[hsl(233,67%,56%)] to-[hsl(248,70%,36%)] p-8 text-white relative overflow-hidden">
-      <div className="relative z-10">
-        <h2 className="text-2xl font-semibold mb-2">Berlin, Germany</h2>
-        <p className="text-lg opacity-90 mb-6">{formatDate(new Date().toISOString())}</p>
-        
-        <div className="flex items-center gap-4">
-          <img src={sunnyIcon} alt="Sunny" className="w-16 h-16" />
-          <span className="text-7xl font-bold">
-            {Math.round(convertTemperature(temp))}°{temperatureUnit.toUpperCase()}
-          </span>
+    <div className="bg-[#1E213A] rounded-2xl p-6 flex flex-col gap-6">
+      
+      {/* Location */}
+      <div className="flex justify-between items-center">
+        <div>
+          <h2 className="text-2xl font-semibold">
+            {location?.name}
+          </h2>
+
+          <p className="text-gray-400 text-sm">
+            {location?.country}
+          </p>
+        </div>
+
+        <p className="text-sm text-gray-400">
+          Today
+        </p>
+      </div>
+
+      {/* Temperature */}
+      <div className="flex items-center justify-between">
+
+        <div>
+          <h1 className="text-7xl font-bold">
+            {convertTemperature(temp).toFixed(1)}°
+          </h1>
+
+          <p className="text-gray-400 mt-2">
+            {temperatureUnit.toUpperCase()}
+          </p>
+        </div>
+
+        {/* Weather Icon */}
+        <div className="text-6xl">
+          ☀️
         </div>
       </div>
     </div>
