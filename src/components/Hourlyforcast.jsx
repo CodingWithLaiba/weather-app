@@ -59,7 +59,7 @@ function HourlyForecast({
   };
 
   return (
-    <div className="bg-[hsl(243,23%,30%)] border border-white/5 rounded-3xl p-6 h-full">
+    <div className="bg-[hsl(243,23%,20%)] border border-white/5 rounded-3xl p-6 h-full">
 
       {/* Heading */}
       <h2 className="text-white text-lg font-semibold mb-6">
