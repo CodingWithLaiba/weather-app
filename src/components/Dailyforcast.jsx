@@ -72,7 +72,7 @@ function DailyForecast({ data, convertTemperature }) {
           return (
             <div
               key={i}
-              className="bg-[hsl(243,23%,20%)] border border-white/35 rounded-2xl p-4 flex flex-col items-center justify-between min-h-[140px] hover:bg-[hsl(243,23%,34%)] transition-all duration-300 hover:-translate-y-1"
+              className="bg-[hsl(243,23%,20%)] border border-white/35 rounded-2xl p-4 flex flex-col items-center justify-between min-h-40 hover:bg-[hsl(243,23%,34%)] transition-all duration-300 hover:-translate-y-1"
             >
               {/* Day */}
               <p className="text-md text-gray-300 font-medium">{dayName}</p>
@@ -81,7 +81,7 @@ function DailyForecast({ data, convertTemperature }) {
               <img
                 src={getWeatherIcon(weatherCodes[i])}
                 alt="Weather Icon"
-                className="w-10 h-10 object-contain"
+                className="w-15 h-15 object-contain"
               />
 
               {/* Temperatures */}
