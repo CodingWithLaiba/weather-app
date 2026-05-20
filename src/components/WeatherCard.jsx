@@ -30,7 +30,7 @@ function WeatherCard({
 
   return (
     <div
-      className="relative overflow-hidden rounded-3xl p-8 md:p-10 min-h-80 flex flex-col justify-between bg-cover bg-center"
+      className="shadow-[0_0_40px_rgba(91,91,247,0.35)] backdrop-blur-sm relative overflow-hidden rounded-3xl p-8 md:p-10 min-h-80 flex flex-col justify-between bg-cover bg-center"
       style={{
         backgroundImage: `url(${weatherBg})`,
       }}
@@ -69,9 +69,9 @@ function WeatherCard({
       </div>
 
       {/* Decorative Dots */}
-      <div className="absolute top-5 left-10 w-2 h-2 bg-yellow-400 rounded-full opacity-70"></div>
-      <div className="absolute bottom-10 left-20 w-3 h-3 bg-orange-400 rounded-full opacity-60"></div>
-      <div className="absolute top-16 right-28 w-2 h-2 bg-yellow-300 rounded-full opacity-50"></div>
+      <div className="absolute top-5 left-10 w-2 h-2 bg-yellow-400 rounded-full opacity-40"></div>
+      <div className="absolute bottom-10 left-20 w-3 h-3 bg-orange-400 rounded-full opacity-40"></div>
+      <div className="absolute top-16 right-28 w-2 h-2 bg-yellow-300 rounded-full opacity-40"></div>
       <div className="absolute bottom-8 right-16 w-2 h-2 bg-purple-300 rounded-full opacity-40"></div>
     </div>
   );
