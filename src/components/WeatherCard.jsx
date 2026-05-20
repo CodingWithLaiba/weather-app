@@ -10,7 +10,9 @@ function WeatherCard({
 }) {
   if (loading) {
     return (
-      <div className="rounded-3xl p-6 bg-[#1E213A] text-white">Loading...</div>
+      <div className="rounded-3xl p-8 md:p-10 bg-[#1E213A] text-white">
+        Loading...
+      </div>
     );
   }
 
@@ -28,34 +30,36 @@ function WeatherCard({
 
   return (
     <div
-      className="relative overflow-hidden rounded-3xl p-6 min-h-[260px] flex flex-col justify-between bg-cover bg-center"
+      className="relative overflow-hidden rounded-3xl p-8 md:p-10 min-h-80 flex flex-col justify-between bg-cover bg-center"
       style={{
         backgroundImage: `url(${weatherBg})`,
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#5B5BF7]/40 to-[#2E2ECF]/60" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#5D5FEF]/20 via-[#4B4DF0]/10 to-[#2D2FE0]/30" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col h-full justify-between">
+      <div className="relative z-10 flex flex-col h-full">
         {/* Top */}
         <div className="flex justify-between items-start">
           {/* Location */}
           <div>
-            <h2 className="text-white text-2xl font-semibold">
+            <h2 className="text-white text-3xl font-bold">
               {location?.name}, {location?.country}
             </h2>
 
-            <p className="text-gray-200 text-sm mt-1">{currentDate}</p>
+            <p className="text-gray-200 text-sm  mt-2 ">{currentDate}</p>
           </div>
 
           {/* Weather Icon */}
-          <img src={sunIcon} alt="Weather Icon" className="w-14 h-14" />
+          <div className="absolute top-20 left-1/2 -translate-x-1/2">
+            <img src={sunIcon} alt="Weather Icon" className="w-16 h-16" />
+          </div>
         </div>
 
         {/* Bottom */}
-        <div className="flex justify-end items-end">
-          <h1 className="text-white text-7xl font-bold leading-none">
+        <div className="mt-auto flex justify-end">
+          <h1 className="text-white text-7xl md:text-8xl tracking-tight font-bold leading-none">
             {convertTemperature(temp).toFixed(0)}°
             <span className="text-4xl align-top">
               {temperatureUnit.toUpperCase()}
