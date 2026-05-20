@@ -4,16 +4,10 @@ import sunIcon from "../assets/images/icon-sunny.webp";
 function WeatherCard({
   data,
   location,
-  loading,
   convertTemperature,
-}) {
-  if (loading) {
-    return (
-      <div className="rounded-3xl p-8 md:p-10 bg-[#1E213A] text-white">
-        Loading...
-      </div>
-    );
-  }
+}) 
+{
+
 
   if (!data || !data.current) return null;
 
