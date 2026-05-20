@@ -1,8 +1,12 @@
 function WeatherStates({
   data,
   convertWindSpeed,
+  convertTemperature,
+  convertHumidity,
   convertPrecipitation,
   windUnit,
+  temp,
+  humidityUnit,
   precipitationUnit,
 }) {
   // No data yet
@@ -16,32 +20,43 @@ function WeatherStates({
 
   // Safe values
   const windSpeed = data.current.wind_speed_10m;
-  
+  const feelsLike = data.current.apparent_temperature;
+  const humidity = data.current.relative_humidity_2m;
+  const precipitation = data.current.precipitation;
 
   return (
-    <div className="rounded-2xl bg-[hsl(243,23%,30%)] p-6 text-white">
-      <h2 className="text-xl font-semibold mb-4">
-        Weather States
-      </h2>
-
-      <div className="space-y-2">
-        <p>
-          Wind Speed:
-          {" "}
-          {convertWindSpeed(windSpeed).toFixed(1)}
-          {" "}
-          {windUnit}
-        </p>
-
-        <p>
-          Precipitation:
-          {" "}
-          {convertPrecipitation(10).toFixed(1)}
-          {" "}
-          {precipitationUnit}
-        </p>
-      </div>
-    </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div
+          className="border border-white/5 bg-[hsl(243,23%,30%)] rounded-2xl p-5">
+          <p className=" text-3xl font-semibold text-white text-sm text-gray-400">Feels Like</p>
+          <h3 className="text-lg font-semibold">
+            {convertTemperature(temp).toFixed(0)}°
+          </h3>
+        </div>
+        <div
+          className="border border-white/5 bg-[hsl(243,23%,30%)] rounded-2xl p-5">
+          <p className=" text-3xl font-semibold text-white text-sm text-gray-400">Humidity</p>
+          <h3 className="text-lg font-semibold">
+            {convertHumidity(humidity).toFixed(1)} {humidityUnit}
+          </h3>
+        </div>
+        <div
+          className="border border-white/5 bg-[hsl(243,23%,30%)] rounded-2xl p-5">
+          <p className=" text-3xl font-semibold text-white text-sm text-gray-400">Wind</p>
+          <h3 className="text-lg font-semibold">
+            {convertWindSpeed(windSpeed).toFixed(1)} {windUnit}
+          </h3>
+        </div>
+        <div
+          className="border border-white/5 bg-[hsl(243,23%,30%)] rounded-2xl p-5">
+          <p className=" text-3xl font-semibold text-white text-sm text-gray-400">Preciptation</p>
+          <h3 className="text-lg font-semibold">
+            {convertPrecipitation(precipitation).toFixed(1)} {precipitationUnit}
+          </h3>
+        </div>
+          </div>
+    
+      
   );
 }
 
