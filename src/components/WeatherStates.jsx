@@ -25,8 +25,8 @@ function WeatherStates({
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
 
       {/* Feels Like */}
-      <div className="bg-[hsl(243,23%,30%)] border border-white/5 rounded-2xl p-5 backdrop-blur-sm hover:bg-[hsl(243,23%,34%)] transition-all duration-300">
-        <p className="text-sm text-gray-400 mb-3">
+      <div className="bg-[hsl(243,23%,20%)] border border-white/35 rounded-2xl py-7 px-5 backdrop-blur-sm hover:bg-[hsl(243,23%,34%)] transition-all duration-300">
+        <p className="text-xl text-gray-400 mb-3">
           Feels Like
         </p>
 
@@ -36,8 +36,8 @@ function WeatherStates({
       </div>
 
       {/* Humidity */}
-      <div className="bg-[hsl(243,23%,30%)] border border-white/5 rounded-2xl p-5 backdrop-blur-sm hover:bg-[hsl(243,23%,34%)] transition-all duration-300">
-        <p className="text-sm text-gray-400 mb-3">
+      <div className="bg-[hsl(243,23%,20%)] border border-white/35 rounded-2xl py-7 px-5 backdrop-blur-sm hover:bg-[hsl(243,23%,34%)] transition-all duration-300">
+        <p className="text-xl text-gray-400 mb-3 ">
           Humidity
         </p>
 
@@ -47,8 +47,8 @@ function WeatherStates({
       </div>
 
       {/* Wind */}
-      <div className="bg-[hsl(243,23%,30%)] border border-white/5 rounded-2xl p-5 backdrop-blur-sm hover:bg-[hsl(243,23%,34%)] transition-all duration-300">
-        <p className="text-sm text-gray-400 mb-3">
+      <div className="bg-[hsl(243,23%,20%)] border border-white/35 rounded-2xl py-7 px-5 backdrop-blur-sm hover:bg-[hsl(243,23%,34%)] transition-all duration-300">
+        <p className="text-xl text-gray-400 mb-3 ">
           Wind
         </p>
 
@@ -60,8 +60,8 @@ function WeatherStates({
       </div>
 
       {/* Precipitation */}
-      <div className="bg-[hsl(243,23%,30%)] border border-white/5 rounded-2xl p-5 backdrop-blur-sm hover:bg-[hsl(243,23%,34%)] transition-all duration-300">
-        <p className="text-sm text-gray-400 mb-3">
+      <div className="bg-[hsl(243,23%,20%)] border border-white/35 rounded-2xl py-7 px-5 backdrop-blur-sm hover:bg-[hsl(243,23%,34%)] transition-all duration-300">
+        <p className="text-xl text-gray-400 mb-3">
           Precipitation
         </p>
 
