@@ -30,7 +30,7 @@ function WeatherCard({
 
   return (
     <div
-      className="shadow-[0_0_40px_rgba(91,91,247,0.35)] backdrop-blur-sm relative overflow-hidden rounded-3xl p-8 md:p-10 min-h-80 flex flex-col justify-between bg-cover bg-center"
+      className="shadow-[0_0_40px_rgba(91,91,247,0.35)] backdrop-blur-sm relative overflow-hidden rounded-3xl p-8 md:p-10 min-h-80 bg-cover bg-center"
       style={{
         backgroundImage: `url(${weatherBg})`,
       }}
@@ -39,29 +39,29 @@ function WeatherCard({
       <div className="absolute inset-0 bg-gradient-to-br from-[#5D5FEF]/20 via-[#4B4DF0]/10 to-[#2D2FE0]/30" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col h-full">
-        {/* Top */}
-        <div className="flex justify-between items-start">
-          {/* Location */}
-          <div>
-            <h2 className="text-white text-3xl font-bold">
-              {location?.name}, {location?.country}
-            </h2>
+      <div className="relative z-10 flex items-center justify-between h-full">
+        {/* LEFT SIDE */}
+        <div className="flex flex-col justify-start">
+          <h2 className="text-white text-3xl md:text-4xl font-bold leading-tight">
+            {location?.name}, {location?.country}
+          </h2>
 
-            <p className="text-gray-200 text-sm  mt-2 ">{currentDate}</p>
-          </div>
-
-          {/* Weather Icon */}
-          <div className="absolute top-20 left-1/2 -translate-x-1/2">
-            <img src={sunIcon} alt="Weather Icon" className="w-16 h-16" />
-          </div>
+          <p className="text-gray-200 text-sm mt-3">{currentDate}</p>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-auto flex justify-end">
-          <h1 className="text-white text-7xl md:text-8xl tracking-tight font-bold leading-none">
+        {/* RIGHT SIDE */}
+        <div className="flex items-center gap-4">
+          {/* Weather Icon */}
+          <img
+            src={sunIcon}
+            alt="Weather Icon"
+            className="w-14 h-14 md:w-24 md:h-24 object-contain"
+          />
+
+          {/* Temperature */}
+          <h1 className="text-white text-7xl md:text-8xl font-bold tracking-tight leading-none">
             {convertTemperature(temp).toFixed(0)}°
-            <span className="text-4xl align-top">
+            <span className="text-4xl md:text-5xl relative -top-4 ml-1">
               {temperatureUnit.toUpperCase()}
             </span>
           </h1>
