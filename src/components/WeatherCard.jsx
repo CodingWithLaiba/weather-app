@@ -6,7 +6,6 @@ function WeatherCard({
   location,
   loading,
   convertTemperature,
-  temperatureUnit,
 }) {
   if (loading) {
     return (
