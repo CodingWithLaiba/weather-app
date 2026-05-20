@@ -6,7 +6,7 @@ function WeatherStates({
   precipitationUnit,
 }) {
   // No data yet
-  if (!data || !data.current_weather) {
+  if (!data || !data.current) {
     return (
       <div className="rounded-2xl bg-[hsl(243,23%,30%)] p-6 text-white">
         Loading weather states...
@@ -15,7 +15,8 @@ function WeatherStates({
   }
 
   // Safe values
-  const windSpeed = data.current_weather.windspeed;
+  const windSpeed = data.current.wind_speed_10m;
+  
 
   return (
     <div className="rounded-2xl bg-[hsl(243,23%,30%)] p-6 text-white">
