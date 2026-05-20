@@ -36,7 +36,7 @@ function WeatherCard({
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#5D5FEF]/20 via-[#4B4DF0]/10 to-[#2D2FE0]/30" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#5B5BF7]/40 to-[#2E2ECF]/60" />
 
       {/* Content */}
       <div className="relative z-10 flex items-center justify-between h-full">
@@ -61,9 +61,9 @@ function WeatherCard({
           {/* Temperature */}
           <h1 className="text-white text-7xl md:text-8xl font-bold tracking-tight leading-none">
             {convertTemperature(temp).toFixed(0)}°
-            <span className="text-4xl md:text-5xl relative -top-4 ml-1">
-              {temperatureUnit.toUpperCase()}
-            </span>
+            {/* <span className="text-4xl md:text-5xl relative -top-4 ml-1"> */}
+              {/* {temperatureUnit.toUpperCase()} */}
+            {/* </span> */}
           </h1>
         </div>
       </div>
