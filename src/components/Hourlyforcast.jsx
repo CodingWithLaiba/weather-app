@@ -6,10 +6,7 @@ import partlyCloudyIcon from "../assets/images/icon-partly-cloudy.webp";
 import fogIcon from "../assets/images/icon-fog.webp";
 import drizzleIcon from "../assets/images/icon-drizzle.webp";
 
-function HourlyForecast({
-  data,
-  convertTemperature,
-}) {
+function HourlyForecast({ data, convertTemperature }) {
   // No Data
   if (!data || !data.hourly) return null;
 
@@ -60,46 +57,36 @@ function HourlyForecast({
 
   return (
     <div className="bg-[hsl(243,23%,20%)] border border-white/5 rounded-3xl p-6 h-full">
-
       {/* Heading */}
-      <h2 className="text-white text-lg font-semibold mb-6">
-        Hourly Forecast
-      </h2>
+      <h2 className="text-white text-lg font-semibold mb-6">Hourly Forecast</h2>
 
       {/* Hourly Rows */}
       <div className="space-y-3">
-
         {times.map((time, i) => {
           // Format Time
-          const formattedTime = new Date(time).toLocaleTimeString(
-            "en-US",
-            {
-              hour: "2-digit",
-              minute: "2-digit",
-              hour12: false,
-            }
-          );
+          const formattedTime = new Date(time).toLocaleTimeString("en-US", {
+            hour: "numeric",
+            hour12: true,
+          });
 
           return (
             <div
               key={i}
-              className={`flex items-center justify-between rounded-2xl px-4 py-3 transition-all duration-300 hover:bg-white/10 ${
-                i === 0
-                  ? "bg-[#5B5BF7]"
-                  : "bg-white/5"
-              }`}
+              className={`flex bg-white/5 items-center justify-between rounded-2xl px-4 py-3 transition-all duration-300 hover:bg-white/10 
+                `}
             >
-              {/* Time */}
-              <p className="text-sm text-gray-200 min-w-[55px]">
-                {formattedTime}
-              </p>
-
-              {/* Weather Icon */}
-              <img
-                src={getWeatherIcon(weatherCodes[i])}
-                alt="Weather Icon"
-                className="w-9 h-9 object-contain"
-              />
+              <div className=" flex gap-2 items-center">
+                {/* Weather Icon */}
+                <img
+                  src={getWeatherIcon(weatherCodes[i])}
+                  alt="Weather Icon"
+                  className="w-11 h-11 object-contain"
+                />
+                {/* Time */}
+                <p className="text-sm text-gray-200 min-w-[55px]">
+                  {formattedTime}
+                </p>
+              </div>
 
               {/* Temperature */}
               <p className="text-white font-semibold text-lg">
@@ -108,7 +95,6 @@ function HourlyForecast({
             </div>
           );
         })}
-
       </div>
     </div>
   );
