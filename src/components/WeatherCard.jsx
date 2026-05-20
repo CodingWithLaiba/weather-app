@@ -48,7 +48,7 @@ function WeatherCard({
           <img
             src={sunIcon}
             alt="Weather Icon"
-            className="w-14 h-14 md:w-24 md:h-24 object-contain"
+            className="w-16 h-16 md:w-24 md:h-24 object-contain"
           />
 
           {/* Temperature */}
