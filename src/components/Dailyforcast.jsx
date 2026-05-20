@@ -1,4 +1,4 @@
-function DailyForecast({ data }) {
+function DailyForcast({ data }) {
   if (!data?.daily) return null;
 if (!data || !data.current_weather)
   return (
@@ -12,4 +12,4 @@ if (!data || !data.current_weather)
     </div>
   );
 }
-export default DailyForecast
+export default DailyForcast
