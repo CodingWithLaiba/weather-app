@@ -13,17 +13,13 @@ import Hourlyforcast from "./components/Hourlyforcast";
 import DailyForcast from "./components/Dailyforcast";
 
 function App() {
-  /* =========================
-      UNITS STATE
-  ========================= */
+  /*  UNITS STATE  */
 
   const [temperatureUnit, setTemperatureUnit] = useState("c");
   const [windUnit, setWindUnit] = useState("km/h");
   const [precipitationUnit, setPrecipitationUnit] = useState("mm");
 
-  /* =========================
-      WEATHER STATE
-  ========================= */
+  /*  WEATHER STATE  */
 
   const [city, setCity] = useState("Lahore");
 
@@ -31,17 +27,13 @@ function App() {
 
   const [weatherData, setWeatherData] = useState(null);
 
-  /* =========================
-      LOADING + ERROR
-  ========================= */
+  /*  LOADING + ERROR  */
 
   const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState("");
 
-  /* =========================
-      FETCH WEATHER
-  ========================= */
+  /*  FETCH WEATHER  */
 
   const fetchWeather = useCallback(async () => {
     try {
@@ -49,8 +41,7 @@ function App() {
 
       setError("");
 
-      /* =========================
-          STEP 1 → GEO LOCATION
+      /*      STEP 1 → GEO LOCATION
       ========================= */
 
       const geoRes = await fetch(
@@ -63,8 +54,7 @@ function App() {
 
       const geoData = await geoRes.json();
 
-      /* =========================
-          CITY NOT FOUND
+      /*      CITY NOT FOUND
       ========================= */
 
       if (!geoData.results || geoData.results.length === 0) {
@@ -77,8 +67,7 @@ function App() {
         return;
       }
 
-      /* =========================
-          SAVE LOCATION
+      /*      SAVE LOCATION
       ========================= */
 
       const cityInfo = geoData.results[0];
@@ -89,8 +78,7 @@ function App() {
 
       const longitude = cityInfo.longitude;
 
-      /* =========================
-          STEP 2 → WEATHER DATA
+      /*      STEP 2 → WEATHER DATA
       ========================= */
 
       const weatherRes = await fetch(
@@ -117,9 +105,7 @@ function App() {
     }
   }, [city]);
 
-  /* =========================
-      FETCH ON CITY C`HANGE
-  ========================= */
+  /*  FETCH ON CITY CHANGE  */
 
   useEffect(() => {
     const loadWeather = async () => {
@@ -128,25 +114,19 @@ function App() {
 
     loadWeather();
   }, [fetchWeather]);
-  /* =========================
-      TEMPERATURE CONVERSION
-  ========================= */
+  /*  TEMPERATURE CONVERSION  */
 
   const convertTemperature = (temp) => {
     return temperatureUnit === "c" ? temp : (temp * 9) / 5 + 32;
   };
 
-  /* =========================
-      WIND CONVERSION
-  ========================= */
+  /*  WIND CONVERSION  */
 
   const convertWindSpeed = (speed) => {
     return windUnit === "km/h" ? speed : speed / 1.609;
   };
 
-  /* =========================
-      PRECIPITATION CONVERSION
-  ========================= */
+  /*PRECIPITATION CONVERSION*/
 
   const convertPrecipitation = (value) => {
     return precipitationUnit === "mm" ? value : value / 25.4;
@@ -155,9 +135,7 @@ function App() {
   return (
     <div className="min-h-screen px-4 py-6 md:px-8 md:py-10">
       <div className="max-w-7xl mx-auto space-y-8">
-        {/* =========================
-            NAVBAR
-        ========================= */}
+        {/*        NAVBAR*/}
 
         <Navbar
           temperatureUnit={temperatureUnit}
@@ -168,39 +146,27 @@ function App() {
           setPrecipitationUnit={setPrecipitationUnit}
         />
 
-        {/* =========================
-            SEARCHBAR
-        ========================= */}
+        {/*SEARCHBAR*/}
 
         <Searchbar setCity={setCity} />
 
-        {/* =========================
-            LOADING SCREEN
-        ========================= */}
+        {/*LOADING SCREEN*/}
 
         {loading ? (
           <LoadingScreen />
         ) : error === "API_ERROR" ? (
-          /* =========================
-              API ERROR
-          ========================= */
+          /* API ERROR*/
 
           <ApiError retry={fetchWeather} />
         ) : error === "CITY_NOT_FOUND" ? (
-          /* =========================
-              CITY NOT FOUND
-          ========================= */
+          /* CITY NOT FOUND*/
 
           <NotFound city={city} />
         ) : weatherData ? (
-          /* =========================
-              MAIN LAYOUT
-          ========================= */
+          /*MAIN LAYOUT*/
 
           <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            {/* =========================
-                LEFT SIDE
-            ========================= */}
+            {/*LEFT SIDE*/}
 
             <div className="flex flex-col gap-6 lg:col-span-8">
               {/* WEATHER CARD */}
@@ -232,9 +198,7 @@ function App() {
               />
             </div>
 
-            {/* =========================
-                RIGHT SIDE
-            ========================= */}
+            {/*RIGHT SIDE*/}
 
             <div className="lg:col-span-4">
               {/* HOURLY FORECAST */}
