@@ -4,18 +4,14 @@ import ErrorIcon from "../assets/images/icon-error.svg";
 function ApiError({ retry }) {
   return (
     <div className="min-h-[70vh] flex items-center justify-center">
-
       <div className="text-center max-w-md px-6">
-
         {/* Icon */}
         <div className="flex justify-center mb-6">
-
           <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center">
             <span className="text-white text-2xl">
-                <img src={ErrorIcon} alt="Error" />
+              <img src={ErrorIcon} alt="Error" />
             </span>
           </div>
-
         </div>
 
         {/* Title */}
@@ -25,8 +21,8 @@ function ApiError({ retry }) {
 
         {/* Description */}
         <p className="text-gray-300 text-sm leading-relaxed mb-6">
-          We couldn't connect to the server (API error).
-          Please try again in a few moments.
+          We couldn't connect to the server (API error). Please try again in a
+          few moments.
         </p>
 
         {/* Retry Button */}
@@ -37,9 +33,7 @@ function ApiError({ retry }) {
           <img src={RetryIcon} alt="Retry" />
           Retry
         </button>
-
       </div>
-
     </div>
   );
 }
