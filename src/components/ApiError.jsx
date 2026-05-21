@@ -1,4 +1,5 @@
 import { RotateCcw } from "lucide-react";
+import ErrorIcon from "../assets/images/icon-error.svg";
 
 function ApiError({ retry }) {
   return (
@@ -10,7 +11,9 @@ function ApiError({ retry }) {
         <div className="flex justify-center mb-6">
 
           <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center">
-            <span className="text-white text-2xl">⊘</span>
+            <span className="text-white text-2xl">
+                <img src={ErrorIcon} alt="Error" />
+            </span>
           </div>
 
         </div>
