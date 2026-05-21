@@ -1,60 +1,64 @@
-🌤️ Weather Forecast App
+# 🌤️ Weather Forecast App
 
+A modern, responsive weather forecasting application built with **React.js**, **Vite**, and **Tailwind CSS**.  
+It provides real-time weather updates, hourly forecasts, and 7-day forecasts using the **Open-Meteo API**, featuring a clean glassmorphism UI.
 
+---
 
+## 🌐 Live Demo & Repository
 
+🔗 GitHub Repo: https://github.com/CodingWithLaiba/weather-app
 
+---
 
+## ✨ Features
 
+- 🔍 Search weather by city name
+- 🌡️ Real-time temperature updates
+- ⏰ Hourly weather forecast
+- 📅 7-day forecast
+- 💨 Wind speed tracking
+- 💧 Humidity details
+- 🌧️ Precipitation data
+- 📱 Fully responsive design
+- ⚡ Fast Vite performance
+- 🎨 Glassmorphism UI design
+- 🌙 Dynamic weather icons
+- 🔄 Loading states
+- ❌ API error handling
+- 🚫 No-result handling
 
+---
 
+## 🛠️ Tech Stack
 
-A modern, responsive weather forecasting application built with React.js, Vite, and Tailwind CSS.
-It provides real-time weather updates, hourly forecasts, and 7-day forecasts using the Open-Meteo API with a clean glassmorphism UI.
+- React.js
+- Vite
+- Tailwind CSS
+- Open-Meteo API
+- JavaScript (ES6+)
 
-🌐 Live Demo & Repository
-🔗 GitHub Repo: Weather App Repository
-✨ Features
-🔍 Search weather by city name
-🌡️ Real-time temperature updates
-⏰ Hourly weather forecast
-📅 7-day forecast
-💨 Wind speed tracking
-💧 Humidity details
-🌧️ Precipitation data
-📱 Fully responsive design
-⚡ Fast Vite performance
-🎨 Glassmorphism UI design
-🌙 Dynamic weather icons
-🔄 Loading states
-❌ API error handling
-🚫 No-result handling
-🖼️ Screenshots
+---
 
-Add your project screenshots here (recommended for portfolio impact)
+## 🌦️ API Integration
 
-![Home Screen](./screenshots/home.png)
-![Search View](./screenshots/search.png)
-![Forecast View](./screenshots/forecast.png)
-🛠️ Tech Stack
-⚛️ React.js
-⚡ Vite
-🎨 Tailwind CSS
-📡 Open-Meteo API
-🧠 JavaScript (ES6+)
-🌦️ API Integration
-📍 Geocoding API
+Geocoding API
 
 Converts city names into latitude & longitude coordinates.
 
-🌤️ Forecast API
+Forecast API
 
 Provides:
 
-Current weather conditions
-Hourly forecasts
-Daily forecasts
-📁 Project Structure
+- Current weather
+- Hourly forecast
+- Daily forecast
+
+---
+
+## 📁 Project Structure
+
+```bash
 src/
 │
 ├── assets/
@@ -74,53 +78,91 @@ src/
 ├── App.jsx
 ├── main.jsx
 └── App.css
-🚀 Getting Started
-1️⃣ Clone the repository
+```
+
+### 🚀 Getting Started
+
+### Clone the repository
+
+```bash
 git clone https://github.com/CodingWithLaiba/weather-app.git
-2️⃣ Install dependencies
+```
+
+### Navigate to project folder
+
+```bash
 cd weather-app
+```
+
+---
+
+### Install dependencies
+
+```bash
 npm install
-3️⃣ Run development server
+```
+
+## Run development server
+
+```bash
 npm run dev
-📦 Build for Production
+```
+
+###📦 Build for Production
+
+```bash
 npm run build
-🌍 Deployment (GitHub Pages)
+```
 
-Install dependency:
+### 🌍 Deployment (GitHub Pages)
 
+Install dependency
+
+```bash
 npm install gh-pages --save-dev
+```
 
-Add in package.json:
+## Add to package.json
 
+```bash
 "homepage": "https://codingwithlaiba.github.io/weather-app"
+```
 
-Add scripts:
+### Add scripts
 
+```bash
 "predeploy": "npm run build",
 "deploy": "gh-pages -d dist"
+```
 
-Deploy:
+### Deploy
 
+```bash
 npm run deploy
+```
+
+###
+
 📱 Responsive Design
-
-Optimized for:
-
 📱 Mobile
 📟 Tablets
 💻 Laptops
 🖥️ Desktops
-🎨 UI/UX Highlights
-Glassmorphism design system
-Soft gradients & modern spacing
-Dynamic weather-based icons
-Clean typography hierarchy
-Smooth responsive layout transitions
-⚠️ Error Handling
+
+### 🎨 UI/UX Highlights
+
+Glassmorphism design
+Smooth gradients
+Dynamic weather icons
+Clean typography
+Responsive layout
+
+### ⚠️ Error Handling
+
 Invalid city search handling
 API failure fallback UI
-Loading state indicators
-Empty result management
+Loading states
+Empty results handling
 🔮 Future Improvements
 📍 Auto-detect location
 🌙 Dark/Light mode toggle
@@ -128,7 +170,8 @@ Empty result management
 🌦️ Animated backgrounds
 ❤️ Favorite cities
 📌 Recent searches
-👩‍💻 Author
+
+### 👩‍💻 Author
 
 Laiba
 
