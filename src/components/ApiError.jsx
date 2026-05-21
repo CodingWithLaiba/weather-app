@@ -1,4 +1,4 @@
-import { RotateCcw } from "lucide-react";
+import RetryIcon from "../assets/images/icon-retry.svg";
 import ErrorIcon from "../assets/images/icon-error.svg";
 
 function ApiError({ retry }) {
@@ -34,7 +34,7 @@ function ApiError({ retry }) {
           onClick={retry}
           className="inline-flex items-center gap-2 bg-[hsl(243,23%,30%)] hover:bg-[hsl(243,23%,35%)] transition-colors px-5 py-3 rounded-xl text-white text-sm font-medium"
         >
-          <RotateCcw size={16} />
+          <img src={RetryIcon} alt="Retry" />
           Retry
         </button>
 
