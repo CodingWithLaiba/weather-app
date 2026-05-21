@@ -5,7 +5,13 @@ import settingIcon from "../assets/images/icon-units.svg";
 import dropdownIcon from "../assets/images/icon-dropdown.svg";
 import tickIcon from "../assets/images/icon-checkmark.svg";
 
-function Navbar({temperatureUnit,setTemperatureUnit, windUnit, setWindUnit, precipitationUnit,setPrecipitationUnit,
+function Navbar({
+  temperatureUnit,
+  setTemperatureUnit,
+  windUnit,
+  setWindUnit,
+  precipitationUnit,
+  setPrecipitationUnit,
 }) {
   const handleSwitch = () => {
     setTemperatureUnit("f");

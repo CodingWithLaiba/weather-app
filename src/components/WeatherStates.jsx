@@ -23,12 +23,9 @@ function WeatherStates({
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-
       {/* Feels Like */}
       <div className="bg-[hsl(243,23%,20%)] border border-white/35 rounded-2xl py-7 px-5 backdrop-blur-sm hover:bg-[hsl(243,23%,34%)] transition-all duration-300">
-        <p className="text-xl text-gray-400 mb-3">
-          Feels Like
-        </p>
+        <p className="text-xl text-gray-400 mb-3">Feels Like</p>
 
         <h3 className="text-3xl font-semibold text-white">
           {convertTemperature(feelsLike).toFixed(0)}°
@@ -37,41 +34,28 @@ function WeatherStates({
 
       {/* Humidity */}
       <div className="bg-[hsl(243,23%,20%)] border border-white/35 rounded-2xl py-7 px-5 backdrop-blur-sm hover:bg-[hsl(243,23%,34%)] transition-all duration-300">
-        <p className="text-xl text-gray-400 mb-3 ">
-          Humidity
-        </p>
+        <p className="text-xl text-gray-400 mb-3 ">Humidity</p>
 
-        <h3 className="text-3xl font-semibold text-white">
-          {humidity}%
-        </h3>
+        <h3 className="text-3xl font-semibold text-white">{humidity}%</h3>
       </div>
 
       {/* Wind */}
       <div className="bg-[hsl(243,23%,20%)] border border-white/35 rounded-2xl py-7 px-5 backdrop-blur-sm hover:bg-[hsl(243,23%,34%)] transition-all duration-300">
-        <p className="text-xl text-gray-400 mb-3 ">
-          Wind
-        </p>
+        <p className="text-xl text-gray-400 mb-3 ">Wind</p>
 
         <h3 className="text-3xl font-semibold text-white">
-          {convertWindSpeed(windSpeed).toFixed(0)}
-          {" "}
-          {windUnit}
+          {convertWindSpeed(windSpeed).toFixed(0)} {windUnit}
         </h3>
       </div>
 
       {/* Precipitation */}
       <div className="bg-[hsl(243,23%,20%)] border border-white/35 rounded-2xl py-7 px-5 backdrop-blur-sm hover:bg-[hsl(243,23%,34%)] transition-all duration-300">
-        <p className="text-xl text-gray-400 mb-3">
-          Precipitation
-        </p>
+        <p className="text-xl text-gray-400 mb-3">Precipitation</p>
 
         <h3 className="text-3xl font-semibold text-white">
-          {convertPrecipitation(precipitation).toFixed(0)}
-          {" "}
-          {precipitationUnit}
+          {convertPrecipitation(precipitation).toFixed(0)} {precipitationUnit}
         </h3>
       </div>
-
     </div>
   );
 }

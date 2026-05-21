@@ -2,26 +2,19 @@ import weatherBgLarge from "../assets/images/bg-today-large.svg";
 import weatherBgSmall from "../assets/images/bg-today-small.svg";
 import sunIcon from "../assets/images/icon-sunny.webp";
 
-function WeatherCard({
-  data,
-  location,
-  convertTemperature,
-}) {
+function WeatherCard({ data, location, convertTemperature }) {
   // No Data
   if (!data || !data.current) return null;
 
   const temp = data.current.temperature_2m;
 
   // Current Date
-  const currentDate = new Date().toLocaleDateString(
-    "en-US",
-    {
-      weekday: "long",
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    }
-  );
+  const currentDate = new Date().toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 
   return (
     <div
@@ -36,7 +29,6 @@ function WeatherCard({
         shadow-[0_10px_40px_rgba(76,81,255,0.45)]
       "
     >
-
       {/* MOBILE BACKGROUND */}
       <img
         src={weatherBgSmall}
@@ -75,13 +67,11 @@ function WeatherCard({
           lg:px-10
         "
       >
-
         {/* LEFT SIDE */}
         <div className="md:max-w-none">
-
-  {/* LOCATION */}
-  <h2
-    className="
+          {/* LOCATION */}
+          <h2
+            className="
       text-white
       font-bold
       leading-tight
@@ -91,16 +81,15 @@ function WeatherCard({
       lg:text-[42px]
       whitespace-nowrap
     "
-  >
-    {location?.name}, {location?.country}
-  </h2>
+          >
+            {location?.name}, {location?.country}
+          </h2>
 
-  {/* DATE */}
-  <p className="text-white/75 text-sm sm:text-base mt-3">
-    {currentDate}
-  </p>
-
-</div>
+          {/* DATE */}
+          <p className="text-white/75 text-sm sm:text-base mt-3">
+            {currentDate}
+          </p>
+        </div>
 
         {/* RIGHT SIDE */}
         <div
@@ -115,7 +104,6 @@ function WeatherCard({
             md:pt-0
           "
         >
-
           {/* WEATHER ICON */}
           <img
             src={sunIcon}
@@ -145,7 +133,6 @@ function WeatherCard({
           >
             {convertTemperature(temp).toFixed(0)}°
           </h1>
-
         </div>
       </div>
 
@@ -157,7 +144,6 @@ function WeatherCard({
       <div className="absolute bottom-0 left-0 w-40 h-20 bg-white/5 rounded-tr-full"></div>
 
       <div className="absolute bottom-0 right-0 w-32 h-16 bg-white/5 rounded-tl-full"></div>
-
     </div>
   );
 }

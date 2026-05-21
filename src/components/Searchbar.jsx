@@ -15,7 +15,6 @@ function Searchbar({ setCity }) {
 
   return (
     <div className="flex flex-col items-center justify-center gap-6">
-
       {/* Heading */}
       <h1 className="text-3xl md:text-5xl font-bold text-white text-center leading-tight">
         How&apos;s the sky looking today?
@@ -26,7 +25,6 @@ function Searchbar({ setCity }) {
         onSubmit={handleSubmit}
         className="w-full max-w-[600px] flex flex-col md:flex-row gap-3"
       >
-
         {/* Input */}
         <div className="relative flex-1">
           <img
@@ -51,7 +49,6 @@ function Searchbar({ setCity }) {
         >
           Search
         </button>
-
       </form>
     </div>
   );
