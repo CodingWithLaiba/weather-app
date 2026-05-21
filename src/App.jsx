@@ -114,61 +114,50 @@ function App() {
         {/* 
             Main Layout
          */}
-        {weatherData && (
+        {/* Main Layout */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {error === "CITY_NOT_FOUND" ? (
+            <div className="lg:col-span-12">
+              <NotFound />
+            </div>
+          ) : weatherData ? (
+            <>
+              {/* LEFT SIDE */}
+              <div className="flex flex-col gap-6 lg:col-span-8">
+                <WeatherCard
+                  data={weatherData}
+                  location={locationData}
+                  convertTemperature={convertTemperature}
+                  temperatureUnit={temperatureUnit}
+                />
 
-  {error === "CITY_NOT_FOUND" ? (
+                <WeatherStates
+                  data={weatherData}
+                  convertWindSpeed={convertWindSpeed}
+                  convertTemperature={convertTemperature}
+                  convertPrecipitation={convertPrecipitation}
+                  windUnit={windUnit}
+                  precipitationUnit={precipitationUnit}
+                />
 
-    <div className="lg:col-span-12">
-      <NotFound city={city}/>
-    </div>
+                <DailyForcast
+                  data={weatherData}
+                  convertTemperature={convertTemperature}
+                  temperatureUnit={temperatureUnit}
+                />
+              </div>
 
-  ) : weatherData ? (
-
-    <>
-      {/* LEFT SIDE */}
-      <div className="flex flex-col gap-6 lg:col-span-8">
-
-        <WeatherCard
-          data={weatherData}
-          location={locationData}
-          convertTemperature={convertTemperature}
-          temperatureUnit={temperatureUnit}
-        />
-
-        <WeatherStates
-          data={weatherData}
-          convertWindSpeed={convertWindSpeed}
-          convertTemperature={convertTemperature}
-          convertPrecipitation={convertPrecipitation}
-          windUnit={windUnit}
-          precipitationUnit={precipitationUnit}
-        />
-
-        <DailyForcast
-          data={weatherData}
-          convertTemperature={convertTemperature}
-          temperatureUnit={temperatureUnit}
-        />
-
-      </div>
-
-      {/* RIGHT SIDE */}
-      <div className="lg:col-span-4">
-
-        <Hourlyforcast
-          data={weatherData}
-          convertTemperature={convertTemperature}
-          temperatureUnit={temperatureUnit}
-        />
-
-      </div>
-    </>
-
-  ) : null}
-
-</section>
-        )}
+              {/* RIGHT SIDE */}
+              <div className="lg:col-span-4">
+                <Hourlyforcast
+                  data={weatherData}
+                  convertTemperature={convertTemperature}
+                  temperatureUnit={temperatureUnit}
+                />
+              </div>
+            </>
+          ) : null}
+        </section>
       </div>
     </div>
   );
