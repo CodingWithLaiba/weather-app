@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import LoadingScreen from "./components/LoadingScreen";
+import ApiError from "./components/ApiError";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar";
 import Searchbar from "./components/Searchbar";
@@ -28,53 +30,52 @@ function App() {
 
   // Fetch Weather Data
 
-  useEffect(() => {
-    const fetchWeather = async () => {
-      try {
-        setLoading(true);
-        setError("");
+  const fetchWeather = async () => {
+    try {
+      setLoading(true);
+      setError("");
 
-        // STEP 1 → Get Coordinates
+      const geoRes = await fetch(
+        `https://geocoding-api.open-meteo.com/v1/search?name=${city}`,
+      );
 
-        const geoRes = await fetch(
-          `https://geocoding-api.open-meteo.com/v1/search?name=${city}`,
-        );
+      const geoData = await geoRes.json();
 
-        const geoData = await geoRes.json();
-
-        // City Not Found
-        if (!geoData.results || geoData.results.length === 0) {
-          setError("CITY_NOT_FOUND");
-          setWeatherData(null);
-          setLocationData(null);
-          return;
-        }
-
-        // Save City Info
-        const cityInfo = geoData.results[0];
-        setLocationData(cityInfo);
-
-        const latitude = cityInfo.latitude;
-        const longitude = cityInfo.longitude;
-
-        // STEP 2 → Fetch Weather
-
-        const weatherRes = await fetch(
-          `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m,weather_code&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&forecast_days=7&timezone=auto`,
-        );
-
-        const weatherJson = await weatherRes.json();
-
-        // Save Weather Data
-        setWeatherData(weatherJson);
-      } catch (err) {
-        console.error(err);
-        setError("Something went wrong");
-      } finally {
-        setLoading(false);
+      if (!geoData.results || geoData.results.length === 0) {
+        setError("CITY_NOT_FOUND");
+        setWeatherData(null);
+        setLocationData(null);
+        return;
       }
-    };
 
+      const cityInfo = geoData.results[0];
+
+      setLocationData(cityInfo);
+
+      const latitude = cityInfo.latitude;
+      const longitude = cityInfo.longitude;
+
+      const weatherRes = await fetch(
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m,weather_code&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&forecast_days=7&timezone=auto`,
+      );
+
+      if (!weatherRes.ok) {
+        throw new Error("API_ERROR");
+      }
+
+      const weatherJson = await weatherRes.json();
+
+      setWeatherData(weatherJson);
+    } catch (err) {
+      console.error(err);
+
+      setError("API_ERROR");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
     fetchWeather();
   }, [city]);
 
@@ -111,53 +112,51 @@ function App() {
 
         {/* Search Bar*/}
         <Searchbar setCity={setCity} />
-        {/* 
-            Main Layout
-         */}
-        {/* Main Layout */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {error === "CITY_NOT_FOUND" ? (
-            <div className="lg:col-span-12">
-              <NotFound />
+
+        {/* LOADING */}
+        {loading ? (
+          <LoadingScreen />
+        ) : error === "API_ERROR" ? (
+          <ApiError retry={fetchWeather} />
+        ) : error === "CITY_NOT_FOUND" ? (
+          <NotFound city={city} />
+        ) : weatherData ? (
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* LEFT SIDE */}
+            <div className="flex flex-col gap-6 lg:col-span-8">
+              <WeatherCard
+                data={weatherData}
+                location={locationData}
+                convertTemperature={convertTemperature}
+                temperatureUnit={temperatureUnit}
+              />
+
+              <WeatherStates
+                data={weatherData}
+                convertWindSpeed={convertWindSpeed}
+                convertTemperature={convertTemperature}
+                convertPrecipitation={convertPrecipitation}
+                windUnit={windUnit}
+                precipitationUnit={precipitationUnit}
+              />
+
+              <DailyForcast
+                data={weatherData}
+                convertTemperature={convertTemperature}
+                temperatureUnit={temperatureUnit}
+              />
             </div>
-          ) : weatherData ? (
-            <>
-              {/* LEFT SIDE */}
-              <div className="flex flex-col gap-6 lg:col-span-8">
-                <WeatherCard
-                  data={weatherData}
-                  location={locationData}
-                  convertTemperature={convertTemperature}
-                  temperatureUnit={temperatureUnit}
-                />
 
-                <WeatherStates
-                  data={weatherData}
-                  convertWindSpeed={convertWindSpeed}
-                  convertTemperature={convertTemperature}
-                  convertPrecipitation={convertPrecipitation}
-                  windUnit={windUnit}
-                  precipitationUnit={precipitationUnit}
-                />
-
-                <DailyForcast
-                  data={weatherData}
-                  convertTemperature={convertTemperature}
-                  temperatureUnit={temperatureUnit}
-                />
-              </div>
-
-              {/* RIGHT SIDE */}
-              <div className="lg:col-span-4">
-                <Hourlyforcast
-                  data={weatherData}
-                  convertTemperature={convertTemperature}
-                  temperatureUnit={temperatureUnit}
-                />
-              </div>
-            </>
-          ) : null}
-        </section>
+            {/* RIGHT SIDE */}
+            <div className="lg:col-span-4">
+              <Hourlyforcast
+                data={weatherData}
+                convertTemperature={convertTemperature}
+                temperatureUnit={temperatureUnit}
+              />
+            </div>
+          </section>
+        ) : null}
       </div>
     </div>
   );
