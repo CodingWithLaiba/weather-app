@@ -1,7 +1,7 @@
 # 🌤️ Weather Forecast App
 
 A modern, responsive weather forecasting application built with **React.js**, **Vite**, and **Tailwind CSS**.  
-It provides real-time weather updates, hourly forecasts, and 7-day forecasts using the **Open-Meteo API**, featuring a clean glassmorphism UI.
+It provides real-time weather updates, hourly forecasts, and 7-day forecasts using the **Open-Meteo API**, featuring a clean glassmorphism UI
 
 ---
 
@@ -108,7 +108,7 @@ npm install
 npm run dev
 ```
 
-###📦 Build for Production
+📦 Build for Production
 
 ```bash
 npm run build
@@ -143,33 +143,26 @@ npm run deploy
 
 ###
 
-📱 Responsive Design
-📱 Mobile
-📟 Tablets
-💻 Laptops
-🖥️ Desktops
+- 📱 Responsive Design
+- 📱 Mobile
+- 📟 Tablets
+- 💻 Laptops
+- 🖥️ Desktops
 
 ### 🎨 UI/UX Highlights
 
-Glassmorphism design
-Smooth gradients
-Dynamic weather icons
-Clean typography
-Responsive layout
+- Glassmorphism design
+- Smooth gradients
+- Dynamic weather icons
+- Clean typography
+- Responsive layout
 
 ### ⚠️ Error Handling
 
-Invalid city search handling
-API failure fallback UI
-Loading states
-Empty results handling
-🔮 Future Improvements
-📍 Auto-detect location
-🌙 Dark/Light mode toggle
-📊 Weather charts
-🌦️ Animated backgrounds
-❤️ Favorite cities
-📌 Recent searches
+- Invalid city search handling
+- API failure fallback UI
+- Loading states
+- Empty results handling
 
 ### 👩‍💻 Author
 
