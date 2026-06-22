@@ -41,8 +41,7 @@ function App() {
 
       setError("");
 
-      /*      STEP 1 → GEO LOCATION
-      ========================= */
+      /*STEP 1 → GEO LOCATION */
 
       const geoRes = await fetch(
         `https://geocoding-api.open-meteo.com/v1/search?name=${city}`,
@@ -54,8 +53,7 @@ function App() {
 
       const geoData = await geoRes.json();
 
-      /*      CITY NOT FOUND
-      ========================= */
+      /*CITY NOT FOUND */
 
       if (!geoData.results || geoData.results.length === 0) {
         setError("CITY_NOT_FOUND");
@@ -67,8 +65,7 @@ function App() {
         return;
       }
 
-      /*      SAVE LOCATION
-      ========================= */
+      /* SAVE LOCATION */
 
       const cityInfo = geoData.results[0];
 
@@ -78,8 +75,7 @@ function App() {
 
       const longitude = cityInfo.longitude;
 
-      /*      STEP 2 → WEATHER DATA
-      ========================= */
+      /*      STEP 2 → WEATHER DATA*/
 
       const weatherRes = await fetch(
         `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m,weather_code&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&forecast_days=7&timezone=auto`,
@@ -135,7 +131,7 @@ function App() {
   return (
     <div className="min-h-screen px-4 py-6 md:px-8 md:py-10">
       <div className="max-w-7xl mx-auto space-y-8">
-        {/*        NAVBAR*/}
+        {/*NAVBAR*/}
 
         <Navbar
           temperatureUnit={temperatureUnit}
